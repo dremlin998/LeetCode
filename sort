@@ -1,0 +1,21 @@
+快速排序
+public void quickSort(ArrayList<Integer> nums,int left,int right){
+    if(left >= right)
+        return;
+    int i = left;
+    int j = right;
+    int key = nums.get(left);
+    while(i<j){
+        while(i<j && nums.get(j) >=key)
+            j--;
+        if(i<j)
+            nums.set(i,nums.get(j));
+        while(i<j && nums.get(i)<=key)
+            i++;
+        if(i<j)
+            nums.set(j,nums.get(i));
+    }
+    nums.set(i,key);
+    quickSort(nums,left,i-1);
+    quickSort(nums,i+1,right);
+}
